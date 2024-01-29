@@ -208,7 +208,11 @@ module.exports = {
           'CreatorMode/CreatorModeRoom/index': {
             tr: '/oda',
             en: '/room'
-          }
+          },
+          'ChildMode/index': {
+            tr: '/cocuk',
+            en: '/child'
+          },
         }
       }
     ],

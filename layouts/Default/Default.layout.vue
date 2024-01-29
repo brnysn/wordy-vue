@@ -5,7 +5,7 @@
 
   .layout__ad.layout__ad--left
     // image_vertical_flex_left
-    AppAd(:data-ad-slot="2717771834")
+    AppAd(:data-ad-slot="123123")
 
   // Inner
   .layout__inner(:class="{ 'layout__inner--pulseBg': $route.path === localePath({ name: 'Main' }) }")
@@ -19,20 +19,18 @@
 
   .layout__ad.layout__ad--right
     // image_vertical_flex_right
-    AppAd(:data-ad-slot="8500032812")
+    AppAd(:data-ad-slot="123123")
 </template>
 
 <script>
 import { defineComponent } from '@nuxtjs/composition-api'
 import { AppPreloader } from '@/components/Preloader'
 import { AppHeader } from '@/components/Header'
-import { AppAd } from '@/components/Ad'
 
 export default defineComponent({
   components: {
     AppPreloader,
-    AppHeader,
-    AppAd
+    AppHeader
   },
   setup() {}
 })

@@ -20,8 +20,7 @@ import { AppAd } from '@/components/Ad'
 
 export default defineComponent({
   components: {
-    Dialog: Dialog.Component,
-    AppAd
+    Dialog: Dialog.Component
   },
   props: {
     isOpen: {

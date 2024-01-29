@@ -17,6 +17,10 @@ export default () => {
     if (route.value.path === localePath({ name: 'CreatorMode-CreatorModeRoom' })) {
       return gameModeKeyEnum.CREATOR
     }
+
+    if (route.value.path === localePath({ name: 'ChildMode' })) {
+      return gameModeKeyEnum.CHILD
+    }
   })
 
   return {

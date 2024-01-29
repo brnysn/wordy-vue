@@ -12,18 +12,7 @@ Dialog.dialog.how-to-play-dialog(
     HowToPlayDailyModeContent(v-if="activeGameMode === gameModeKeyEnum.DAILY")
     HowToPlayUnlimitedModeContent(v-if="activeGameMode === gameModeKeyEnum.UNLIMITED")
     HowToPlayCreatorModeContent(v-if="activeGameMode === gameModeKeyEnum.CREATOR")
-    .how-to-play-dialog__ad
-      AppAd(:data-ad-slot="9964323575")
-
-  // Footer
-  footer.how-to-play-dialog__footer
-    i18n.d-flex(path="app.copyright")
-      template(#logo)
-        RadKodLogo(:width="80" height="auto")
-      template(#spacer)
-        span &nbsp;
-      template(#text)
-        span {{ $t('general.by') }}
+    HowToPlayChildModeContent(v-if="activeGameMode === gameModeKeyEnum.CHILD")
 </template>
 
 <script>
@@ -32,9 +21,7 @@ import { ALPHABET_LENGTH } from '@/system/constant'
 import { gameModeKeyEnum } from '@/enums'
 import { useGameMode } from '@/hooks'
 import { Dialog } from 'vant'
-import { HowToPlayDailyModeContent, HowToPlayUnlimitedModeContent, HowToPlayCreatorModeContent } from '@/components/Content'
-import { RadKodLogo } from '@/components/Logo'
-import { AppAd } from '@/components/Ad'
+import { HowToPlayDailyModeContent, HowToPlayUnlimitedModeContent, HowToPlayCreatorModeContent, HowToPlayChildModeContent } from '@/components/Content'
 
 export default defineComponent({
   components: {
@@ -42,8 +29,7 @@ export default defineComponent({
     HowToPlayDailyModeContent,
     HowToPlayUnlimitedModeContent,
     HowToPlayCreatorModeContent,
-    RadKodLogo,
-    AppAd
+    HowToPlayChildModeContent
   },
   props: {
     isOpen: {

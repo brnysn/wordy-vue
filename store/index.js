@@ -3,23 +3,23 @@ export const actions = {
     if (process.browser) {
       const persistStore = JSON.parse(window.localStorage.getItem('persistStore'))
 
-      const storedFingerprint = persistStore && persistStore.auth?.user?.fingerprint
+      // const storedFingerprint = persistStore && persistStore.auth?.user?.fingerprint
 
-      if (!storedFingerprint || storedFingerprint.length <= 0) {
-        await dispatch('auth/generateFingerprint')
+      // if (!storedFingerprint || storedFingerprint.length <= 0) {
+      //   await dispatch('auth/generateFingerprint')
 
-        const fetchMeResult = await dispatch('auth/fetchMe')
+      //   const fetchMeResult = await dispatch('auth/fetchMe')
 
-        if (fetchMeResult.success) {
-          commit('auth/SET_USERNAME', fetchMeResult.data.username)
-        } else {
-          const updateUserResult = await dispatch('auth/updateUser')
+      //   if (fetchMeResult.success) {
+      //     commit('auth/SET_USERNAME', fetchMeResult.data.username)
+      //   } else {
+      //     const updateUserResult = await dispatch('auth/updateUser')
 
-          if (updateUserResult.success) {
-            commit('auth/SET_USERNAME', updateUserResult.data.username)
-          }
-        }
-      }
+      //     if (updateUserResult.success) {
+      //       commit('auth/SET_USERNAME', updateUserResult.data.username)
+      //     }
+      //   }
+      // }
     }
   }
 }

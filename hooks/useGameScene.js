@@ -151,7 +151,6 @@ export default () => {
 
     const passKeywords = ['pas', 'pass']
     const endGameKeywords = ['bitir', 'finish']
-    const radkodKeyword = 'radkod'
 
     if (passKeywords.includes(answerField.toLocaleLowerCase('tr').trim().replace(/\s+/g, ''))) {
       pass()
@@ -161,18 +160,6 @@ export default () => {
 
     if (endGameKeywords.includes(answerField.toLocaleLowerCase('tr').trim().replace(/\s+/g, ''))) {
       endGame()
-
-      return false
-    }
-
-    if (answerField === radkodKeyword.toLocaleLowerCase('tr').trim().replace(/\s+/g, '')) {
-      Notify({
-        message: i18n.t('gameScene.radkodNotify'),
-        color: 'var(--color-text-04)',
-        background: 'var(--color-brand-radkod)'
-      })
-
-      radkodEasterEggSoundFx.play()
 
       return false
     }
@@ -209,6 +196,36 @@ export default () => {
     }
 
     myAnswers.value.push({ ...alphabet.value.items[alphabet.value.activeIndex], field: answer.field })
+    window.localStorage.setItem(`${activeGameMode.value}MyAnswers`, JSON.stringify(myAnswers.value))
+
+    alphabet.value.activeIndex = nextLetter()
+  }
+
+  const correctAnswer = () => {
+    if (isGameOver.value) return false
+
+    const item = alphabet.value.items[alphabet.value.activeIndex]
+
+    item.isPassed = false
+    item.isCorrect = true
+    soundFx.correct.play()
+
+    myAnswers.value.push({ ...alphabet.value.items[alphabet.value.activeIndex], field: questions.value[alphabet.value.activeIndex].answer })
+    window.localStorage.setItem(`${activeGameMode.value}MyAnswers`, JSON.stringify(myAnswers.value))
+
+    alphabet.value.activeIndex = nextLetter()
+  }
+
+  const wrongAnswer = () => {
+    if (isGameOver.value) return false
+
+    const item = alphabet.value.items[alphabet.value.activeIndex]
+
+    item.isPassed = false
+    item.isWrong = true
+    soundFx.wrong.play()
+
+    myAnswers.value.push({ ...alphabet.value.items[alphabet.value.activeIndex], field: questions.value[alphabet.value.activeIndex].answer })
     window.localStorage.setItem(`${activeGameMode.value}MyAnswers`, JSON.stringify(myAnswers.value))
 
     alphabet.value.activeIndex = nextLetter()
@@ -305,7 +322,6 @@ export default () => {
     wrong: null,
     pass: null,
     halfTime: null,
-    radkodEasterEgg: null
   })
 
   const startSoundFx = new Howl({
@@ -328,16 +344,11 @@ export default () => {
     src: [`${WEB_CDN}/assets/sound/fx/half-time.wav`]
   })
 
-  const radkodEasterEggSoundFx = new Howl({
-    src: [`${WEB_CDN}/assets/sound/fx/radkod-easter-egg.mp3`]
-  })
-
   soundFx.start = startSoundFx
   soundFx.correct = correctSoundFx
   soundFx.wrong = wrongSoundFx
   soundFx.pass = passSoundFx
   soundFx.halfTime = halfTimeSoundFx
-  soundFx.radkodEasterEgg = radkodEasterEggSoundFx
 
   const startGame = async () => {
     await nextTick()
@@ -375,7 +386,7 @@ export default () => {
       message: `<h3 class='start-game-toast__countdown'>3</h3> \n ${startGameToastMessage}`
     })
 
-    let second = 3
+    let second = 1
 
     const timer = setInterval(() => {
       second--
@@ -419,10 +430,6 @@ export default () => {
     } else {
       dialog.stats.isOpen = true
     }
-
-    setTimeout(() => {
-      dialog.interstitialAd.isOpen = true
-    }, 1000)
   }
 
   const listenCountdown = async timeData => {
@@ -560,6 +567,8 @@ export default () => {
     calculateStats,
     nextLetter,
     handleAnswer,
+    correctAnswer,
+    wrongAnswer,
     handleAnswerField,
     handleTabKey,
     pass,

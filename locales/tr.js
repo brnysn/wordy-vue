@@ -42,6 +42,9 @@ export default {
       },
       creator: {
         title: 'YARATICI'
+      },
+      child: {
+        title: 'ÇOCUK'
       }
     }
   },
@@ -143,6 +146,10 @@ export default {
       creator: {
         extra:
           'Bu soru cevap seti başka bir oyuncu tarafından hazırlandı <br> {questionCount} soru ve {questionCount} cevap var. Bu modu tekrar tekrar oynayabilirsin.'
+      },
+      child: {
+        extra:
+          'Bu mod çocuklar içindir. <br> {questionCount} soru ve {questionCount} cevap vardır.'
       },
       cancelButtonText: 'Kapat ve Başla'
     },

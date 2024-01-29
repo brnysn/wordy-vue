@@ -245,6 +245,13 @@
       @include font-weight-bold;
     }
 
+    &__answer {
+      display: block;
+      margin-top: 50px;
+      color: var(--color-success-01);
+      border: 1px solid var(--color-brand-01);
+    }
+
     @at-root html[ua-is-from-ios='true'] {
       #{$question} {
         &--osk {
@@ -421,6 +428,22 @@
 
       @at-root .unsupported-height {
         #{$answer-field-button} {
+          height: calc(var(--field-height--small) - (var(--base-p-y) / 2));
+        }
+      }
+    }
+
+    .child_buttons {
+      $answer-field-child-buttons: '.answer-field__child_buttons';
+
+      // make sure 3 child buttons are full width, and button group is centered
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+
+      @at-root .unsupported-height {
+        #{$answer-field-child-buttons} {
           height: calc(var(--field-height--small) - (var(--base-p-y) / 2));
         }
       }

@@ -1,4 +1,5 @@
 export { default as DailyModeStatsDialog } from './DailyModeStatsDialog/DailyModeStatsDialog.component'
+export { default as ChildModeStatsDialog } from './ChildModeStatsDialog/ChildModeStatsDialog.component'
 export { default as UnlimitedModeStatsDialog } from './UnlimitedModeStatsDialog/UnlimitedModeStatsDialog.component'
 export { default as CreatorModeStatsDialog } from './CreatorModeStatsDialog/CreatorModeStatsDialog.component'
 export { default as CreatorModeCreatedRoomDialog } from './CreatorModeCreatedRoomDialog/CreatorModeCreatedRoomDialog.component'

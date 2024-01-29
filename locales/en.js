@@ -42,6 +42,9 @@ export default {
       },
       creator: {
         title: 'CREATOR'
+      },
+      child: {
+        title: 'CHILD'
       }
     }
   },
@@ -144,6 +147,10 @@ export default {
       creator: {
         extra:
           'This Q&A set was created by another player <br> There are {questionCount} questions and {questionCount} answers. You can play this mod over and over again.'
+      },
+      child: {
+        extra:
+          'This mode is for children. <br> There are {questionCount} questions and {questionCount} answers.'
       },
       cancelButtonText: 'Close and Play'
     },

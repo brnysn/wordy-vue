@@ -2,7 +2,7 @@
 .scene.intro-scene(ref="rootRef" tabindex="1")
   // Scene Inner
   .scene__inner
-    AppLogo
+    //- AppLogo
     h2.intro-scene__title {{ $t('introScene.title') }}
 
     .intro-scene-mode-list
@@ -24,9 +24,12 @@
         span.intro-scene-mode-list-item__icon 🔁
         | {{ $t('introScene.modeList.unlimited.title') }}
         label.intro-scene-mode-list-item__label(v-if="$i18n.locale !== $i18n.defaultLocale") Currently only available for TR
-      Button.intro-scene-mode-list-item(size="large" :to="localePath({ name: 'CreatorMode-CreatorModeIntro' })")
-        span.intro-scene-mode-list-item__icon 📝
-        | {{ $t('introScene.modeList.creator.title') }}
+      //- Button.intro-scene-mode-list-item(size="large" :to="localePath({ name: 'CreatorMode-CreatorModeIntro' })")
+      //-   span.intro-scene-mode-list-item__icon 📝
+      //-   | {{ $t('introScene.modeList.creator.title') }}
+      Button.intro-scene-mode-list-item(size="large" :to="localePath({ name: 'ChildMode' })")
+        span.intro-scene-mode-list-item__icon 👶🏻
+        | {{ $t('introScene.modeList.child.title') }}
 </template>
 
 <script>
