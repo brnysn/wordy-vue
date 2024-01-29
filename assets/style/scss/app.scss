@@ -1,0 +1,42 @@
+// Variables
+@import '../css/variables/breakpoint.css';
+@import '../css/variables/spacing.css';
+@import '../css/variables/color.css';
+@import '../css/variables/border-radius.css';
+@import '../css/variables/box-shadow.css';
+@import '../css/variables/z-index.css';
+@import '../css/variables/font-size.css';
+@import '../css/variables/motion.css';
+@import '../css/variables/layout.css';
+@import '../css/variables/header.css';
+@import '../css/variables/scene.css';
+
+// Overrides
+@import 'overrides/vant';
+
+/*
+ * Bootstrap Vendor (5.2.3)
+ */
+
+// > Bootstrap Partials
+
+@import 'bootstrap/scss/maps';
+@import 'bootstrap/scss/utilities';
+@import 'bootstrap/scss/utilities/api';
+@import 'bootstrap/scss/grid';
+@import 'bootstrap/scss/containers';
+
+// Base
+@import 'base/general';
+
+// Utils
+@import 'utils/state';
+
+// Shared (elements with common/shared style classes)
+@import 'shared/page';
+@import 'shared/layout';
+@import 'shared/transition';
+@import 'shared/scene';
+@import 'shared/countdown';
+@import 'shared/toast';
+@import 'shared/dialog';
